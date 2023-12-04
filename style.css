@@ -1,0 +1,438 @@
+:root {
+  --glitch-text-light: #000000; /* Black text for light mode */
+  --glitch-text-dark: #FFFFFF; /* White text for dark mode */
+}
+/* import fonts from fonts.css file */
+@import url(fonts.css);
+
+/* css variables */
+@import url(variables.css);
+
+/* import global styling */
+@import url(global.css);
+
+/* start navigation */
+
+.header_area .main-menu .navbar .navbar-brand {
+  /* padding: 0 2rem 0 5rem; */
+  background: -webkit-linear-gradient(rgb(199, 181, 241), #3544af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header_area .main-menu .navbar {
+  padding: 1rem 20rem;
+  display: flex;
+}
+
+.header_area .main-menu .nav-item .nav-link {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--title-color);
+}
+
+.header_area .main-menu .navbar-nav .active a {
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header_area .main-menu .navbar-nav a:hover {
+  background: var(--gradient-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #6b76c6;
+  background-clip: text;
+}
+
+.simg {
+  width: 40%;
+}
+
+.text-name {
+  font-family: "Dancing Script", cursive;
+}
+
+/* end navigation */
+
+/* Banner Area */
+
+/* .site-main .site-banner {
+    background: url(../img/banner/home-banner.png) no-repeat 0% 50%;
+} */
+
+.site-main .site-banner .site-title h3 {
+  padding-top: 35%;
+  font-weight: 500;
+}
+
+.site-main .site-banner .site-title h3::after {
+  content: " ";
+  height: 2px;
+  width: 18vw;
+  background: black;
+  display: inline-block;
+  margin-left: 5%;
+  transform: translateY(-10px);
+}
+
+.site-main .site-banner .site-title h1 {
+  font-size: 5rem;
+}
+
+.site-main .site-banner .site-title h4 {
+  font-size: 1.5rem;
+}
+
+.site-main .site-banner .banner-image > img {
+  padding: 7rem 0;
+  width: 90rem;
+}
+
+/* Initial styles to hide the text */
+.title-text {
+  opacity: 0;
+}
+
+/* Animation */
+.title-text {
+  animation: fadeIn 3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* End Banner Area */
+/* Start Glitch Area */
+
+.site-main .glitch-wrapper {
+   width: 100%;
+   height: 50px; /* Adjust the height as needed */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   background-color: transparent; /* Transparent background */
+}
+
+.site-main .glitch {
+   position: relative;
+   font-size: 50px; /* Adjust the font size as needed */
+   font-weight: bold;
+   color: var(--glitch-text-light);
+   letter-spacing: 3px;
+   z-index: 1;
+}
+.site-main[data-theme="dark"] .glitch {
+  color: var(--glitch-text-dark); /* Change text color for dark mode */
+}
+.site-main .glitch:before,
+.site-main .glitch:after {
+   display: block;
+   content: attr(data-text);
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0.8;
+}
+
+.site-main .glitch:before {
+   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+   color: #00FFFF;
+   z-index: -1;
+}
+
+.site-main .glitch:after {
+   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+   color: #FF00FF;
+   z-index: -2;
+}
+
+@keyframes glitch-it {
+   0% {
+      transform: translate(0);
+   }
+   20% {
+      transform: translate(-2px, 2px);
+   }
+   40% {
+      transform: translate(-2px, -2px);
+   }
+   60% {
+      transform: translate(2px, 2px);
+   }
+   80% {
+      transform: translate(2px, -2px);
+   }
+   to {
+      transform: translate(0);
+   }
+}
+
+/* End Glitch Area */
+/* Start About Area */
+
+.site-main .about-area {
+  padding: 8rem 5rem;
+}
+
+.site-main .about-area .about-title h2 > span {
+  display: block;
+  font: normal bold 49px/ 60px var(--roboto);
+  letter-spacing: 21px;
+}
+
+.site-main .about-area .about-title .paragraph > p {
+  padding: 0.4rem 0;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
+}
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* End About Area */
+
+/* Services Area */
+h1::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+h1:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+h1::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: hsl(200 100% 80%);
+  z-index: -1;
+  transition: transform .2s ease;
+}
+
+h1 {
+  position: relative;
+  font-size: 3rem;
+}
+
+html {
+  block-size: 50%;
+  inline-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: system-ui, sans-serif;
+}
+
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+.site-main > .services-area .services {
+  background: rgba(248, 252, 253, 0.973);
+  padding: 2rem 2rem;
+  width: 16rem;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  height: 38rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle 3D shadow effect */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the shadow */
+}
+
+.site-main > .services-area .services:hover {
+  box-shadow: 5px 5px 5px #b9bff7f5, -5px -5px 5111px #b9bff7f5; /* Enhance the shadow on hover for a 3D effect */
+}
+
+/* End Services Area */
+
+/* Project Area */
+
+.site-main .project-area {
+  padding: 4rem 0;
+}
+
+.site-main .project-area .button-group button {
+  background: transparent;
+  border: none;
+  font: normal 500 16px/130px var(--roboto);
+  text-transform: uppercase;
+}
+
+.site-main .project-area .button-group button + button {
+  padding-left: 3rem;
+}
+
+.site-main .project-area .grid .our-project > .title h4 {
+  font: normal 700 25px/12px var(--roboto);
+}
+
+.site-main .project-area .grid .our-project .img a:hover img {
+  filter: brightness(1.1) drop-shadow(1px 8px 30px #b1afaf);
+}
+
+/* End Project Area */
+
+/* Subscribe me */
+
+.site-main .subscribe-us-area .subscribe {
+  background: url(subscribe-bg.png) no-repeat;
+  padding: 10rem 0;
+  margin: 3rem auto;
+  width: 100%;
+  height: 100px;
+  background-size:cover;
+  display: flex;
+  flex-direction:row;
+  justify-content : center;
+  align-items : center;
+}
+
+.site-main .subscribe-us-area .subscribe .subscribe-title h4 {
+  font: normal 700 30px/ 30px var(--roboto);
+  color: whitesmoke;
+}
+
+.site-main .subscribe-us-area .subscribe .subscribe-title p {
+  color: whitesmoke;
+  padding: 1rem 4rem;
+}
+
+.site-main .subscribe-us-area .subscribe form .input-textbox input {
+  width: 400px;
+  padding: 1.5rem 1rem;
+  border: 1px solid whitesmoke;
+  background: transparent;
+  color: white;
+  font: normal 500 17px/20px var(--roboto);
+}
+
+.site-main
+  .subscribe-us-area
+  .subscribe
+  form
+  .input-textbox
+  input::placeholder {
+  color: whitesmoke;
+}
+
+.site-main .subscribe-us-area .subscribe form .btn-submit button {
+  background: whitesmoke;
+  color: #000;
+  padding: 0.7rem 2rem;
+}
+
+/* End subscribe me */
+
+/* Footer Area */
+
+footer.footer-area {
+  padding: 5rem 0;
+  background: url(footer-bg.png) no-repeat;
+}
+
+footer.footer-area .social h5 {
+  font: normal 500 23px/ 30px var(--roboto);
+}
+
+footer.footer-area .social a > i {
+  font-size: 22px;
+  padding: 2rem;
+  color: #000000;
+}
+
+footer.footer-area .social a:hover > i {
+  color:#000000;
+}
+
+/* End Footer */
+
+/* ligjt and dark mode */
+
+.switchContainer {
+  width: 3rem;
+  height: 10px;
+  border-radius: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+
+  background: #000000;
+  display: flex;
+  align-items: center;
+}
+
+.button-toggle {
+  background: #000000EA;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-toggle svg,
+.button-toggle img {
+  width: 100%;
+  fill: #DFC310;
+  z-index: 3;
+}
+
+.dark-them {
+  background: #fff;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+}
+
+#uniqueBtnByObadea {
+  background: linear-gradient(to top right, #c663c6, #95d7d7);
+  border: none;
+}
+
+.menu--toggle--button {
+  display: flex;
+  flex-direction: row;
+  width: 7rem;
+  justify-content: space-between;
+  margin-left: 10px;
+  align-items: center;
+  order: 3;
+}
+
+.navbar-collapse {
+  order: 2;
+}
+
+@media (max-width: 991px) {
+  .menu--toggle--button {
+    order: 2;
+  }
+  .navbar-collapse {
+    order: 3;
+  }
+}
